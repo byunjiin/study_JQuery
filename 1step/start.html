@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS기본</title>
+    <!-- 외부스크립트 -->
+    <script src="#"></script>
+    <!-- 내부스크립트 -->
+    <script>
+        // 프롬프트창에 입력하기(내용안쓰면 빈칸으로 입력창 뜸)
+        prompt("prompt창 제목","입력할내용");
+
+        //출력하기
+        document.write("웹페이지에 출력");
+        alert("메세지창에 출력");
+        console.log("콘솔창에 출력");
+        confirm("메세지창에 출력");
+
+        //변수(대소문자 구분/ 띄어쓰기불가/ 첫글자 숫자,특수문자불가, _랑$는사용가능/ 예약어불가)
+        var a = "문자안의'문자'"; //반대로 '먼저"나중"'도 가능
+        var ary = ["a","b","c"]; //변수 배열
+        var exam = {subject:"css",score:20}; //변수 객체
+        var unitChange = function(num){
+            var trans = num/100;
+            document.write(num+'cm는'+trans+'m입니다');
+        } //변수 함수
+        var obj1;//변수를 선언하지않을때(undefined)->false로 인식
+        var obj2=null;//변수 값이 null일때->false로 인식
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
