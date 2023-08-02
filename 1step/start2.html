@@ -7,73 +7,75 @@
     <script>
         //함수
         //선언적함수(함수의 앞,뒤 호출가능)
-        show();//앞
-        function show(){
-            document.write("show()함수를 호출하였습니다");
-        }
-        // show();//뒤
-        //익명함수(함수의 뒤 호출가능,함수명없음)
-        var view = function(){
-            document.write("view()함수를 호출합니다.")
-        }
-        view();
+            show();//앞
+            function show(){
+                document.write("show()함수를 호출하였습니다");
+            }
+            // show();//뒤
+        // 익명함수(함수의 뒤 호출가능,함수명없음)
+            var view = ()=>{
+                document.write("view()함수를 호출합니다.");
+                return 1;
+            }
+            console.log(view());
+            view();
         //람다함수(일회용함수, 함수명없음)
-        (function(){
-            document.write("view()함수를 호출");
-        })();
+            (function(){
+                document.write("view()함수를 호출");
+            })();
         //매개변수(=parameter, 함수에 전달되는 변수)
-        function subjectName(subject){ //괄호안에 매개변수
-            document.write(subject);
-       }
-       subjectName("jQuery"); //함수명(매개변수값)
+            function subjectName(subject){ //괄호안에 매개변수
+                document.write(subject);
+            }
+        subjectName("jQuery"); //함수명(매개변수값)
        //외부함수(전역함수) 호출
-       function calculation(m){
-        m = m*0.3025;
-        return m;
-       }
-       function areaChange(mv){
-        var result = calculation(mv).toFixed(1); //calculation():외부의 함수를 사용 / toFixed(1):소숫점한자리까지
-        document.write(result+'평');
-       }
-       areaChange(102);
-       //내부함수(지역함수) 호출(함수 밖에서 호출할 수 없어 실행할때마다 변수값이 초기화=스코프 / var을 꼭 적어야함)
-       function areaChange(mv){
-        var calculation = function(m) {
-            m=m*0.3025;
+            function calculation(m){
+            m = m*0.3025;
             return m;
             }
-            var result = calculation(mv).toFixed(1);
+            function areaChange(mv){
+            var result = calculation(mv).toFixed(1); //calculation():외부의 함수를 사용 / toFixed(1):소숫점한자리까지
             document.write(result+'평');
-       }
-       areaChange(112);
-       //재귀함수(함수 내에서 자신의 함수를 다시 호출하는 함수)
-       function factorial(n){
-            if(n==0){
-                document.write("호출 끝");
-            }else{
-                document.write("호출"+n+"<br>");
-                factorial(n-1);
             }
-       }
-       fatorial(10);
-       //인코딩함수(문자->부호화)
-       escape()//escape(str)일때 문자 인코딩, 영어와 숫자와 특수문자(*-/+@_.제외) 인코딩
-       encodeURI()//encodeURI(str)일때 문자 인코딩, URI는 URL포함하는 개념(url주소에 쿼리정보를 보낼수있음), 영어와 숫자와 특수문자(*-/+@_.제외) 인코딩
-       encodeURIComponent()//encodeURIComponent(str)일때 문자 인코딩, 영어와 숫자와 특수문자(*-/+@_.제외) 인코딩
-       //디코딩함수(부호화->문자)
-       unescape()//unuscape(str)일때 문자 디코딩
-       decodeURI()//decodeURI(str)일때 문자 디코딩
-       decodeURIComponent()//decodeURIComponent(str)일떄 문자 디코딩
+            areaChange(102);
+       //내부함수(지역함수) 호출(함수 밖에서 호출할 수 없어 실행할때마다 변수값이 초기화=스코프 / var을 꼭 적어야함)
+            function areaChange(mv){
+            var calculation = function(m) {
+                m=m*0.3025;
+                return m;
+                }
+                var result = calculation(mv).toFixed(1);
+                document.write(result+'평');
+            }
+            areaChange(112);
+       //재귀함수(함수 내에서 자신의 함수를 다시 호출하는 함수)
+            function factorial(n){
+                if(n==0){
+                    document.write("호출 끝");
+                }else{
+                    document.write("호출"+n+"<br>");
+                    factorial(n-1);
+                }
+            }
+            fatorial(10);
+        //인코딩함수(문자->부호화)
+            escape()//escape(str)일때 문자 인코딩, 영어와 숫자와 특수문자(*-/+@_.제외) 인코딩
+            encodeURI()//encodeURI(str)일때 문자 인코딩, URI는 URL포함하는 개념(url주소에 쿼리정보를 보낼수있음), 영어와 숫자와 특수문자(*-/+@_.제외) 인코딩
+            encodeURIComponent()//encodeURIComponent(str)일때 문자 인코딩, 영어와 숫자와 특수문자(*-/+@_.제외) 인코딩
+        //디코딩함수(부호화->문자)
+            unescape()//unuscape(str)일때 문자 디코딩
+            decodeURI()//decodeURI(str)일때 문자 디코딩
+            decodeURIComponent()//decodeURIComponent(str)일떄 문자 디코딩
        //숫자, 유/무한 판별함수
-       isNaN()//isNaN(n) n이 숫자인지 아닌지 판별(숫자면 false, 숫자아니면 true)
-       isFinite()//isFinite(n) n이 유한인지 무한인지 판별(유한이면 true, 무한이면 false)
-       //숫자 및 문자 변환 함수
-       Number()//Number(n)일때, n값을 숫자로 변환
-       parseInt()//parseInt(n)일때, n값에 숫자와 문자가 포함되어 있을경우 정수부분만 숫자로 변환
-       parseFloat()//parseFloat(n)일때, n값에 숫자와 문자가 포함되어 있을경우 소수부분까지 숫자로 변환
-       String()//String(n)일때, n값을 문자로 변환
-       //문자를 자바스크립트 변경
-       eval()//eval("var num=5")이면 문자"var num=5"를 자바스크립트코드 var num=5로 변경
+            isNaN()//isNaN(n) n이 숫자인지 아닌지 판별(숫자면 false, 숫자아니면 true)
+            isFinite()//isFinite(n) n이 유한인지 무한인지 판별(유한이면 true, 무한이면 false)
+        //숫자 및 문자 변환 함수
+            Number()//Number(n)일때, n값을 숫자로 변환
+            parseInt()//parseInt(n)일때, n값에 숫자와 문자가 포함되어 있을경우 정수부분만 숫자로 변환
+            parseFloat()//parseFloat(n)일때, n값에 숫자와 문자가 포함되어 있을경우 소수부분까지 숫자로 변환
+            String()//String(n)일때, n값을 문자로 변환
+        //문자를 자바스크립트 변경
+            eval()//eval("var num=5")이면 문자"var num=5"를 자바스크립트코드 var num=5로 변경
     </script>
 </head>
 <body>

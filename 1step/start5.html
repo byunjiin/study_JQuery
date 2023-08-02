@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS기본4</title>
+    <script>
+        //BOM(Browser Object Model)
+        //:브라우저 객체 모델. 브라우저의 정보등을 취득하거나 제어
+
+        //Window객체(최상위) : 전역변수나 적역함수를 만들때 자동으로 생성되는 글로벌 객체
+        //+window객체의 메서드를 사용할땐, 보통 앞에 window객체를 생략하고 사용
+        // window객체의 메서드)
+            open()//새로운 윈도우를 생성(보통의 window객체와 달리 window객체를 반드시 붙여줘야함)
+                window.open("문서주소","윈도우이름","옵션=값,옵션=값,...")
+                //  open메서드의 옵션 (모든 브라우저에서 동일하게 적용X)
+                width = 픽셀값 // 윈도우의 가로너비
+                height = 픽셀값 // 윈도우의 세로너비
+                left = 픽셀값 // 윈도우의 왼쪽위치
+                top = 픽셀값 // 윈도우의 위쪽위치
+                location = yes 또는 no // 윈도우의 주소창을 나타낼것인지 아닌지 설정
+                scrollbars = yes 또는 no // 윈도우의 스크롤바를 나타낼것인지 아닌지 설정
+                menubar = yes 또는 no // 윈도우 메뉴바를 나타낼것인지 아닌지 설정
+                toolbar = yes 또는 no // 윈도우 툴바를 나타낼것인지 아닌지 설정
+                status = yes 또는 no // 윈도우 상태줄를 나타낼것인지 아닌지 설정
+                resizable = yes 또는 no//윈도우 사이즈 변경 가능한지 아닌지 설정. 인터넷익스플로러에서만 적용
+            close()//윈도우를 닫아줌(보통의 window객체와 달리 window객체를 반드시 붙여줘야함)
+                window(현재의윈도우).close()
+            setInterval()// 일정 시간마다 지정한 함수를 반복적으로 실행하는 메서드
+            //+setInterval(함수,초)의 형태로 써야하고 함수()로 쓰면 안됨
+                setInterval(function(){
+                    실행문
+                },밀리초(1/1000초))
+            setTimeout()// 설정한 시간이 흐른 뒤에 지정한 함수를 한번만 실행하게 하는 메서드
+            
+            clearInterval()// setInterval()를 정지
+                var time_id = setInterval(function(){
+                    실행문
+                },밀리초(1/1000초))
+                clearInterval(time_id)
+            clearTimeout()// setTimeout()를 정지
+
+
+
+        //document객체(자손)
+        //location객체(자손)
+        //screen객체(자손)
+        //history객체(자손)
+        //Navigator객체(자손)
+
+        //from(document객체의 자손)
+        //anchors(document객체의 자손)
+        //cookie(document객체의 자손)
+        //images(document객체의 자손)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

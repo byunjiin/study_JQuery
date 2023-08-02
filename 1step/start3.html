@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS기본3</title>
+    <script>
+        //객체 
+        // 정의: "var 객체 = new Object()"에서 객체는 변수
+            var 객체 = {}
+            객체.속성;
+            객체.메서드;
+        // ex) 원-객체 / 원을구성하는요소(색상,지름)-속성 / 원의반지름을구하는기능-메서드
+
+        // 객체리터럴
+            var 객체 = {속성:속성값, 메서드:function(){}}
+
+        //객체 반목문
+            for(var 변수 in 객체명){
+                실행문;
+            }
+
+        //객체(메서드) 삭제
+            delete 객체.속성;
+
+        //this : 자기자신 객체
+
+        //인스턴스 : new연산자 + 생성자함수 (틀을 만들어서 배포)
+
+        //생성자함수 : 내장 객체에서 객체를 생성할때 사용
+
+        //프로토타입 : 메서드들을 생성자함수에 포함시키지 않고 외부에서 만드는 방법
+            객체명.prototype.메서드 = function(){
+                실행문;
+            }
+        // 프로토타입의 객체리터럴)
+            객체명.prototype = function(){
+                메서드 : function(){실행문};
+                메서드 : function(){실행문}; 
+            }
+
+        //Object객체 : 내장 객체와 사용자 정의 객체의 기본 객체(공통)
+            //속성:
+                constructor//인스턴스를 생성하는 생성자함수를 반환
+            //메서드:
+                hasOwnProperty()//hasOwnProperty("length")일때, length속성이 객체에 존재하는지 검사하여 존재하면 true, 안하면 false반환
+                propertyIsEnumerable()//propertyIsEnumerable("sub")일때 sub속성을 반복문으로 열거할수 있는지 가능하면 true, 못하면 false반환
+                isPrototypeOf()//isPrototypeOf("obj")일때, obj 객체가 지정한 객체의 프로토타입이면 
+                toString()//
+                valueOf()//
+        //클로저(Closure): 함수의 실행이 끝난뒤에도 지역변수를 계속 유지하는 방법
+            function Closure(n){
+                return ++n;
+            }
+            var a = Closure;
+            document.write(a(10)+"<br>"); //11
+            var b = Closure;
+            document.write(b(20)+"<br>"); //21
+            document.write(a(10)); //11 변수값을 계속 저장하여 연산
+
+        //내장객체
+        // Number객체) 변수에 숫자가 저장되면 알아서 변수를 Number객체로 만들어줌(기본데이터형은 new+생성자함수를 쓰지않아도 변수에 값을 입력하면 객체로 인식)
+            // 속성:
+                MAX_VALUE//최대값(인스턴스사용불가=num.MAX_VALUE 불가)
+                MIN_VALUE//최솟값(인스턴스사용불가=num.MIN_VALUE 불가)
+                NaN//not a numver=숫자가 아닐대 반환
+                NEGATIVE_INFINITY//음수 무한대(인스턴스사용불가=num.NEGATIVE_INFINITY 불가)
+                POSITIVE_INFINITY//양수 무한대(인스턴스사용불가=num.POSITIVE_INFINITY 불가)
+            // 메서드: (Numver객체메서드들을 통해 변경된 숫자 값들은 모두 문자로 반환)
+                toFixed()//toFixed(n)일때 n만큼 소숫점자리수 만듦
+                toString()//toString(n) n값의 진수로 만들어줌
+                toExponential()//toExponential(n) 맨앞자리 숫자 이후부터 n값만큼의 소수점 자릿수로 된 지수로 변경(자릿수 이전 값 반올림)
+                toPrecision()//toPrecision(n)숫자를 n값의 자릿수만큼 반환해주고 만약 숫자를 n값의 개수로 표현할 수 없으면 지수표기법으로 변경(자릿수 이전 값 반올림)
+        // String객체) 변수에 문자가 저장되면 알아서 변수를 String객체로 만들어줌(기본데이터형은 new+생성자함수를 쓰지않아도 변수에 값을 입력하면 객체로 인식)
+        // index = 0부터 시작
+            // 속성:
+                length//문자열의 길이
+            // 메서드:
+                charAt()//charAt(n)문자열에서 n값과 같은 index 위치의 문자를 반환
+                charCodeAt()//charCodeAt(n) 문자열에서 n값과 같은 index 위치의 문자를 유니코드로 반환
+                fromCharCode()//유니코드로 변경(인스턴스말고 객체원형에 사용)
+                toLowerCase()//소문자로 변경
+                toUpperCase()//대문자로 변경
+                indexOf()//indexOf("a")일때 "a"문자와 일치하는 문자를 왼쪽 문자열부터 검색해 index값 반환
+                lastIndexOf()//lastIndexOf("a")일때 "a"문자와 일치하는 문자를 오른쪽 문자열부터 검색해 index값 반환
+                slice()//slice(n1, n2)일때 n1값과 같은 index위치에서 시작하여 문자열 번호 n2까지 추출
+                substring()//substring(n1, n2)일때 n1값과 같은 index위치에서 시작하여 문자열 번호 n2까지 추출
+                substr()//substr(n1, n2)일때 n1값과 같은 index위치에서 시작하여 문자열 번호 n2까지 추출
+                split()//split("_") _문자를 기준으로 문자열을 분할하여 배열로 만들어줌
+                replace()//replace("a","b") "a"를 "b"로 변환
+                concat()//문자1.concat(문자2) 두개의 문자를 하나의 문자로 만들어줌
+        // Array객체) 속성대신 index로 데이터에 접근 (단순히 데이터만 저장하는것이 아니라 메서드를 만들어 사용할수있음)
+            // 속성:
+                length//배열의 개수
+            // 메서드:
+                slice()//slice(n1, n2)일때 n1값과 같은 index위치에서 시작하여 문자열 번호 n2까지 추출, 배열에 영향을 주지 않음
+                join()//배열 안의 값들을 문자로 연결, 배열에 영향을 주지 않음
+                concat()//배열을 연결
+                toString()//배열값들을 문자열로 변환
+                splice()//지정된 부분의 배열을 삭제하거나 추가, 배열에 영향을 줌
+                shift()//배열의 첫 요소를 삭제(index 0삭제), 배열에 영향을 줌
+                unshift()//배열의 첫 요소를 추가(index 0추가), 배열에 영향을 줌
+                pop()//배열의 마지막 요소를 삭제(index n삭제), 배열에 영향을 줌
+                push()//배열의 마지막 요소를 추가(index n추가), 배열에 영향을 줌
+                reverse()//배열의 순서 변환
+                sort()//오름차순으로 정렬(배열값이 숫자인 경우에도 문자열로 정렬하기에 문제발생)
+                var ary = [2, 41, 11];
+                ary.sort(function(a,b){
+                    return a -b;//오름차순 [2,11,41]
+                    return b -a;//내림차순 [41,11,2]
+                })
+        // 2차원 배열) 배열값에 배열이 저장되는 형태(배열안에 배열)
+            var ary= new Array();
+            ary[0] = ["j", "a", "v", "a"];
+            ary[1] = ["s", "c", "r"];
+            ary[2] = ["i", "p", "t"];
+            document.write(ary[0][0]+"<br>");
+            document.write(ary[1][1]+"<br>");
+            document.write(ary[2][2]); //결과 : j 엔터 c 엔터 t 
+        // Math객체) 수학연산을 위한 객체. 다른 객체와 달리 생성자함수로 객체를 생성하지않음
+            // MATH.속성값 또는 MATH.메서드로 바로 사용
+            // 속성:
+                PI//원주율값(3.14)
+                E//자연 로그 및인 상수 e의 값(2.718)
+                LN2//2의 자연로그값(0.693)
+                LN01//10의 자연로그값(2.302)
+                LOG2E//밑이 2인 3의 로그(1.442)
+                SQRT1_2//1/2의 제곱근(0.707)
+                SQRT2//2의 제곱근(1.414)
+            // 메서드:
+                abs()//Math.abs(n)일떄, n의 절대값을 반환
+                max()//Math.max(n1,n2)일떄, 큰값 반환 
+                min()//Math.min(n1,n2)일떄, 작은값 반환
+                acos()//Math.acos(n)일떄, n의 아크 코사인값을 반환
+                asin()//Math.asin(n)일떄, n의 아크 사인값을 반환
+                atan()//Math.atan(n)일떄, n의 아크 탄젠트값을 반환
+                atan2()//Math.atan2(n1,n2)일떄, x축에서 1(y좌표)값, n2(x좌표)값의 아크 탄젠트 값을 반환 
+                round()//Math.round(n)일떄, n의 소수점 이하가 5 이상이면 반올림, 미만이면 절삭한 정수값을 반환
+                ceil()//Math.(n)일떄, n의 소수점 이하를 올림하여 정수로 만든 값을 반환
+                floor()//Math.(n)일떄,n의 소수점 이하를 절삭한 정수값 반환
+                log()//Math.(n)일떄, n의 로그값 반환
+                sin()//Math.(n)일떄, n의 사인값 반환
+                tan()//Math.(n)일떄, n의 탄젠트 값을 반환
+                sqrt()//Math.(n)일떄, n의 제곱근값을 반환
+                pow()//Math.(n1,n2)일떄, n1의 n2승값을 반환
+                exp()//Math.(n)일떄, Math.E값 2.718의 n승값 반환
+                random()//Math.(n)일떄, 0~1사이 난수값 반환
+        // Date객체)날짜와 시간에 대한 정보값을 얻거나 설정
+            // new연산자+Date()함수
+                var date = new Date()
+                data.getFullYear()
+                data.getMonth() 
+            // 메서드:
+                getFullYear()//4자리 년도값 반환
+                getMonth()//월값 반환
+                getDate()//일값 반환
+                getDay()//요일값 반환(0=일요일)
+                getHours()//시간값 반환
+                getMinutes()//분값 반환
+                getSeconds()//초값 반환
+                getMilliseconds()//밀리초(1/1000)값 반환
+                getTime()//1970년1월1일 이후부터 경과한 밀리초 값을 반환
+                getTimezoneOffset()//UTC(국제표준시)와의 시차값을 반환
+                setFullYear()//4자리 년도값 설정
+                setMonth()//월값 설정
+                setData()//일값 설정
+                setDay()//요일값 설정(0=일요일)
+                setHours()//시간값 설정
+                setMinutes()//분값 설정
+                setSeconds()//초값 설정
+                setMilliseconds()//밀리초(1/1000)값 설정
+                setTime()//1970년1월1일 이후부터 경과한 밀리초 값을 설정
+                getUTCFullYear()//UTC(국제표준시) 4자리 년도값 반환
+                getUTCMonth()//UTC(국제표준시) 월값 반환
+                getUTCDate()//UTC(국제표준시) 일값 반환
+                getUTCDay()//UTC(국제표준시) 요일값 반환(0=일요일)
+                getUTCHours()//UTC(국제표준시) 시간값 반환
+                getUTCMinutes()//UTC(국제표준시) 분값 반환
+                getUTCSeconds()//UTC(국제표준시) 초값 반환
+                getUTCMilliseconds()//UTc(국제표준시) 밀리초(1/1000)값 반환
+                setUTCFullYear()//UTc(국제표준시) 4자리 년도값 설정
+                setUTCMonth()//UTc(국제표준시) 월값 설정
+                setUTCData()//UTc(국제표준시) 일값 설정
+                setUTCDay()//UTc(국제표준시) 요일값 설정(0=일요일)
+                setUTCHours()//UTc(국제표준시) 시간값 설정
+                setUTCMinutes()//UTc(국제표준시) 분값 설정
+                setUTCSeconds()//UTc(국제표준시) 초값 설정
+                toString()//일시를 문자로 반환
+                toGMTString()//GMT(그리니치 표준시) 날짜를 문자열로 반환
+                toUTCString()//UTC(국제표준시) 날짜를 문자열로 반환
+                toDateString()//날짜를 문자열로 반환
+                toTimeString()//시간을 문자열로 반환
+                toLocaleString()//지역의 Date정보로 문자열을 반환
+                toLocaleDateString()//지역의 날짜 정보로 문자열을 반환
+                toLocalTimeString()//지역의 시간 정보로 문자열을 반환
+                parse()//날짜 문자열을 1970년 1월 1일 자정 이후부터 경과한 밀리초값을 반환
+                UTC()//날짜를 1970년 1월 1일 자정 이후부터 경과한 밀리초값을 반환
+        // RegExp객체=정규표현식객체) 문자의 패턴을 만들 때 사용
+            //new연산자+RegExp()함수 또는 리터럴형식
+                var rexp = new RegExp("Javascript","igm") //img는 생략가능(필요에 따라 하나씩사용)
+                var rexp = /Javascript/img //위의 코드를 리터럴로
+            // 메서드:
+                test()//정규 표현식과 문자열의 일치 여부에 따라 true/false
+                exec()//정규 표현식과 일치하는 문자열을 반환
+                    // var rexp = /Javascript/
+                    // rexp.exec("Javascript jQuery") -> Javascript
+                match()//정규 표현식과 일치하는 문자열을 반환
+                    // var rexp = /Javascript/
+                    // str = "Javascript jQuery"
+                    // str.search(rexp) -> Javascript
+                search()//정규 표현식과 일치하는 문자열 시작 ixdex 위치 반환
+                    // var rexp = /Javascript/
+                    // str = "Javascript"
+                    // str.search(rexp) -> 0
+            // 플러그:
+                i//대소문자 구분 없이 정규 표현식과 문자열 비교
+                g//문자열 전체를 정규 표현식과 비교
+                m//여러 줄의 문자열을 정규 표현식과 비교 (/s는 시작 /n은 개행)
+            //주요패턴:
+                ABC//ABC문자열 검색
+                [ABC]//A,B,C 중 하나의 문자 검색
+                [^ABC]//A,B,C 제외한 문자 검색
+                [A-Z]//알바벳 대문자 A부터 Z까지 검색
+                [a-z]//알바벳 소문자 a부터 z까지 검색
+                [0-9]//숫자 0부터 9까지 검색
+                A|B|C//A또는B또는C 문자 검색
+                ^//행의 첫 문자가 일치하는것 검색
+                $//행의 끝 문자가 일치하는것 검색
+                \.//하나의 문자 검색
+                \w//알파벳대소문자, 숫자, _ 를 검색
+                \W//알파벳대소문자, 숫자, _ 를 빼고 검색
+                \d//숫자 검색
+                \D//숫자 빼고 검색
+                \s//공백 문자 검색
+                \S//공백 문자 빼고 검색
+                *//ABC*이면 AB, ABC, ABCC, ABCCC..를 의미. *바로 앞 문자 C는 없어도 되고 반복되도 됨
+                ?//ABC?이면 AB, ABC를 의미. ?바로 앞 문자 C는 없어도 되고 반목 문자는 포함되지 않음
+                +//ABC+이면 ABC, ABCC, ABCCC..를 의미. +바로 앞 문자 C는 꼭 있어야 하고 반복되도 됨
+                {}//
+                    // /d{3} //숫자 3개
+                    // /d{3,5} //숫자 3~5개
+                    // /d{3.} //숫자 3개이상
+                [ㄱ-힣]//한글을 검색
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
