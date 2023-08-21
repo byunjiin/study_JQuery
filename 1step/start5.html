@@ -8,10 +8,10 @@
         //BOM(Browser Object Model)
         //:브라우저 객체 모델. 브라우저의 정보등을 취득하거나 제어
 
-        //Window객체(최상위) : 전역변수나 적역함수를 만들때 자동으로 생성되는 글로벌 객체
+        //[최상위]Window객체 : 전역변수나 적역함수를 만들때 자동으로 생성되는 글로벌 객체
         //+window객체의 메서드를 사용할땐, 보통 앞에 window객체를 생략하고 사용
         // window객체의 메서드)
-            open()//새로운 윈도우를 생성(보통의 window객체와 달리 window객체를 반드시 붙여줘야함)
+            //open() : 새로운 윈도우를 생성(보통의 window객체와 달리 window객체를 반드시 붙여줘야함)
                 window.open("문서주소","윈도우이름","옵션=값,옵션=값,...")
                 //  open메서드의 옵션 (모든 브라우저에서 동일하게 적용X)
                 width = 픽셀값 // 윈도우의 가로너비
@@ -24,34 +24,63 @@
                 toolbar = yes 또는 no // 윈도우 툴바를 나타낼것인지 아닌지 설정
                 status = yes 또는 no // 윈도우 상태줄를 나타낼것인지 아닌지 설정
                 resizable = yes 또는 no//윈도우 사이즈 변경 가능한지 아닌지 설정. 인터넷익스플로러에서만 적용
-            close()//윈도우를 닫아줌(보통의 window객체와 달리 window객체를 반드시 붙여줘야함)
+            //close() : 윈도우를 닫아줌(보통의 window객체와 달리 window객체를 반드시 붙여줘야함)
                 window(현재의윈도우).close()
-            setInterval()// 일정 시간마다 지정한 함수를 반복적으로 실행하는 메서드
+            //setInterval() : 일정 시간마다 지정한 함수를 반복적으로 실행하는 메서드
             //+setInterval(함수,초)의 형태로 써야하고 함수()로 쓰면 안됨
                 setInterval(function(){
                     실행문
                 },밀리초(1/1000초))
-            setTimeout()// 설정한 시간이 흐른 뒤에 지정한 함수를 한번만 실행하게 하는 메서드
-            
-            clearInterval()// setInterval()를 정지
+            //setTimeout() : 설정한 시간이 흐른 뒤에 지정한 함수를 한번만 실행하게 하는 메서드
+            //clearInterval() :  setInterval()를 정지
                 var time_id = setInterval(function(){
                     실행문
                 },밀리초(1/1000초))
                 clearInterval(time_id)
-            clearTimeout()// setTimeout()를 정지
+            //clearTimeout() : setTimeout()를 정지
+            //기타
+                moveBy(x,y) // 윈도우 위치를 상대 좌표로 이동
+                moveTo(x,y) // 윈도우 위치를 절대 좌표로 이동
+                resizeBy(x,y) // 윈도우 사이즈를 상대 사이즈로 변경
+                resizeTo(x,y) // 윈도우 사이즈를 절대 사이즈로 변경
+                scrollBy(x,y) // 윈도우 스크롤 위치를 상대적으로 변경
+                scrollTo(x,y) // 윈도우 스크롤 위치를 절대적으로 변경
+                blur() // 윈도우에 포커스를 맞춤
+                focus() // 윈도우에서 포커스를 벗어나게 해줌
+                print() // 현재 윈도우 내용을 인쇄
 
+        //[자손]document객체 : 문서
+            //write() 메서드 : 출력결과 보여줌
+            var win = window.open('','win','width = 400,height=200'); //open메서드를 통해 만들어진 window
+            var str = "<h1>document.write()<h1>";
+            str += "<p>write()메서드</p>";
+            win.document.write(str);
+        //[자손]location객체 : url, 주소창
+            // 속성:
+                    //EX) http://icoxpublish.com#icox
+                hash // 주소의 앵커명(#) 변환
+                    //->#icox
+                host // 주소의 호스트명과 포트 번호 변환
+                    //->http://icoxpublish.com:50229
+                hostname // 주소의 호스트명을 반환
+                    //->http://icoxpublish.com
+                port // 주소의 포트번호를 반환
+                    //->50229
+                pathname //주소의 패스명을 반환
+                href // 주소의 프로토콜명을 반환
+                protocol // 주
+                search //
+            // 메서드:
+                reload() // 현재 페이지를 다시 로드
+                replace() // replace(url)일때 url값으로 이동
+        //[자손]screen객체
+        //[자손]history객체
+        //[자손]Navigator객체
 
-
-        //document객체(자손)
-        //location객체(자손)
-        //screen객체(자손)
-        //history객체(자손)
-        //Navigator객체(자손)
-
-        //from(document객체의 자손)
-        //anchors(document객체의 자손)
-        //cookie(document객체의 자손)
-        //images(document객체의 자손)
+        //[document객체의 자손]from
+        //[document객체의 자손]anchors
+        //[document객체의 자손]cookie
+        //[document객체의 자손]images
     </script>
 </head>
 <body>

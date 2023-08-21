@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과값표시 Boolean</title>
+    <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+
+
+<body id="boolean">
+<div id="result" style="display: none; margin-top: 100px;">
+    <div class="boolean" style="display: none;">
+        <p><strong>*Boolean결과값</strong></p>
+        <div class="true" style="color: #fff;background: blue;">TRUE</div>
+        <div class="false" style="color: #fff;background: red;">FALSE</div>
+    </div>
+</div>
+<script>
+    //함수선언 : resultBoolean
+    function resultBoolean(target){ 
+        var $result = $("#result"); //id가 result인 태그를 부름
+
+        $result
+            .show()
+            .find(".boolean") //class가 boolean인 태그를 부름
+            .show();
+        
+        if(result){
+            $result
+                .find(".boolean .false") //class가 false인 태그를 부름
+                .hide();
+        }
+        else{
+            $result
+                .find(".boolean .true") //class가 true인 태그를 부름
+                .hide();
+        }
+    }
+    //함수실행 : resultBoolean
+    resultBoolean($("body").is("#boolean")); //id가 boolean인 태그를 부름
+    // .is 는 body안에서 boolean 찾기
+</script>
+</body>
+</html>

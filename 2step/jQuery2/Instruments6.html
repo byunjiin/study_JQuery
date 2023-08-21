@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과값표시 Html</title>
+    <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <div id="result" style="display: none; margin-top: 100px;">
+        <div class="html" style="display: none;">
+            <p><strong>*Html 결과값</strong></p>
+            <p class="description" style="background: #eee;"></p>
+        </div>
+        <div class="result_html" style="display: none;"></div>
+    </div>
+    <script>
+        //함수선언 : resultHtml
+        function resultHtml(target){ 
+            var $result = $("#result");
+
+            $result
+                .show()
+                .find(".html")
+                .show();
+            
+                if(!target) {
+                $result
+                    .find(".html .description")
+                    .text("값 없음.");
+                }
+                else{
+                    if(target.length != 0){
+                        $result
+                            .find(".html .description")
+                            .empty()
+                            .text(
+                                $(".result_html")
+                                    .append($(target).clone()) //clone?
+                                    .html()
+                            );
+                        
+                    }
+                    else{
+                    $result
+                        .find(".html .description")
+                        .text("값 없음.");
+                    }
+                }
+        }
+        //함수실행 : resultHtml
+        resultHtml($("ul"));
+        
+        //결과이상
+    </script>
+</body>
+</html>

@@ -7,33 +7,88 @@
     <script>
         //이벤트
         //마우스이벤트
+            click//요소에 마우스 클릭시 발생
+            dbclick//요소에 마우스 더블클릭시 발생
+            mouseover//요소에 마우스 오버 했을시 발생
+            mouseout//요소에 마우스 아웃시 발생
+            mousedown//요소에 마우스 눌렀을때 발생
+            mouseup//요소에 마우스 떼었을때 발생
+            mousemove//요소에 마우스 움직였을때 발생
+            contextmenu//context menu(마우스 오른쪽 버튼을 눌렀을때 나오는 메뉴)가 나오기 전에 이벤트 발생
 
         //키이벤트
+            keydown//키를 눌렀을때 이벤트 발생
+            keyup//키를 떼었을때 이벤트 발생
+            keypress//키를 누른 상태에서 이벤트 발생
 
         //폼이벤트
+            focus//요소에 포커스가 이동되었을때 발생
+            blur//요서에 포커스가 벗어났을때 발생
+            change//요소에 값이 변경되었을때 발생
+            submit//submit버튼을 눌렀을때 발생
+            reset//reset버튼을 눌렀을때 발생
+            select//input이나 textarea요소 안의 텍스트를 드래그하여 선택했을때 발생
 
         //로드 및 기타 이벤트
+            load//페이지 로딩이 완료되었을때 이벤트 발생
+            abort//이미지 로딩이 중단되었을때 발생
+            unload//페이지가 다른곳으로 이동될때 발생
+            resize//요소에 사이즈가 변경되었을때 이벤트 발생
+            scroll//스크롤바를 움직였을때 이벤트 발생
 
         //이벤트 연결
-        // 인라인방식)
-        // 고전방식)
+        // 이벤트 핸들러 : 실제 이벤트 바랭시 이벤트에 대응하러 처리하는것. on+이벤트로 이벤트에 대한 동작 처리
+        // 인라인방식)동일한 객체에 동일한 이벤트 여러번 적용불가
+            <태그명 on이벤트 = 자바스크립트 코드></태그명>
+        // 고전방식)동일한 객체에 동일한 이벤트 여러번 적용불가
+            객체.on이벤트명 = function(){} //또는
+            function함수명(){}
+            객체.on이벤트명 = 함수명
+        // 인터넷익스플로러방식)인라인, 고전방식을 보완하기 위함(이벤트리스너의 한 종류)
         // 이벤트 리스너)
-
-        //이벤트 객체
+            //인터넷 익스플로러 이벤트 리스너 방법
+                객체.attachEvent('on이벤트명',function(){}); //추가
+                객체.detachEvent('on이벤트명',function(){}); //삭제
+            //표준 이벤트 리스너 방법(크롬, 파이어폭스 등)
+                객체.addEventListener('이벤트명',function(){}); //추가
+                객체.removeEventListener('이벤트명',function(){}); //삭제
+            //통합 이벤트 리스너 방법(모든브라우저)
+                if(window.attachEvent){
+                    객체.attachEvent('on이벤트명',function(){});
+                }
+                else{ 
+                    객체.addEventListener('이벤트명',function(){});
+                }
+        //이벤트 객체 : 사용자가 직접 만들지 않아도 기본적으로 제공해주는 객체(속성, 메서드가 필요)
         // 형식
+            bt.onclick = function(event){
+                evnet.속성 //evnet : 익명함수의 매개변수 = 이벤트 객체
+                evnet.메서드
+            }
         // 속성:
+            target // 이벤트를 발생시킨 객체 반환
+            type // 이벤트의 이름 반환
+            clientX // 이벤트가 발생한 X좌표값 반환(브라우저기준)
+            clientY // 이벤트가 발생한 Y좌표값 반환(브라우저기준)
+            screenX // 이벤트가 발생한 X좌표값 반환(스크린기준)
+            screenY // 이벤트가 발생한 Y좌표값 반환(스크린기준)
+            button // 마우스 왼쪽, 가운데, 오른쪽 버튼값을 반환
+            altKey // alt키가 눌러졌을때 true값 반환
+            ctrlKey // ctrl키가 눌러졌을때 true값 반환
+            shiftKey // shift키가 눌러졌을때 true값 반환
         // 메서드:
-
-        //방지
-        // 실행방지)
-        // 버블링방지)
-
+            preventDefault() // 기본 이벤트의 실행을 방지(자바스크립트+요소 이벤트 실행시, 자바스크립트 이벤트만 실행하고싶을때)
+            //+ 인터넷 익스플로러 8이하 - returnValue=false / 간단 - return false
+            stopPropagation() // 이벤트 버블링을 방지
+            //+ 인터넷 익스플로러 8이하 - cancelBubble=true
         //강제실행
         // 형식
-
+            객체.on이벤트명()
         //this사용
-
-        
+            var gnb = document.getElementById("gnb") //변수에 요소가 저장되면 그 변수는 객체(=인스턴스화)
+            gnb.onclick = function(){
+                this.styledeisplay = "block"; //this는 관호 안 객체 "gnb"를 의미
+            }
     </script>
 </head>
 <body>

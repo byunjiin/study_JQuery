@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과값표시 Selector2</title>
+    <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <p>p태그</p>
+    <div>div태그</div>
+    <p>p태그</p>
+    <script>
+        //함수선언 : resultSelector
+        function resultSelector(selector,lineColor){ 
+            if(!lineColor) lineColor = "red";
+            
+            selector.css({outline:"3px solid "+lineColor}); //속성이므로 solid뒤에 띄어쓰기 주의
+        }
+        //함수실행 : resultSelector
+        resultSelector($("p"));
+        resultSelector($("div"),"blue");
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery기본3</title>
+    <!-- 온라인 환경(=네트워크방식) -->
+    <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Migrate : 이전버전 기능 사용 -->
+    <script src="http://code.jquery.com/jquery-migrate-1.11.0.min.js"></script>
+</head>
+</head>
+<body>
+    <!-- 버튼을 누르면 텍스트가 사라지고, 다시 누르면 보이는 예제 -->
+    <button>버튼</button>
+    <p>테스트 텍스트</p>
+    <script>
+        let sw=1;
+        $("button").click( //$("요소").이벤트(fuction(){})
+        //click : 마우스 클릭 / toggle : 반전
+            function(){
+                if(sw==1){ //if문은 function안에 들어가야함
+                    $("p").hide(1000); //1초는 1000
+                    sw=0;
+                }
+                else{
+                    $("p").show(1000);
+                    sw=1;
+                }
+            }
+        );
+    </script>
+</body>
+</html>

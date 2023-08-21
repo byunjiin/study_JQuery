@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery기본2</title>
+    <!-- 오프라인 환경(=로컬방식) -->
+    <script src="../jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <!-- 버튼을 누르면 텍스트가 사라지고, 다시 누르면 보이는 예제 -->
+    <button>버튼</button>
+    <p>테스트 텍스트</p>
+    <script>
+        let sw=1;
+        $("button").click( // $("요소(=<>안에 있는거)").이벤트(fuction(){})
+        //이벤트종류 = click : 마우스 클릭 / toggle : 반전 / hide : 숨김 / show : 보임
+            function(){
+                if(sw==1){ //if문은 function안에 들어가야함
+                    $("p").hide(1000); //1초는 1000
+                    sw=0;
+                }
+                else{
+                    $("p").show(1000);
+                    sw=1;
+                }
+            }
+        );
+    </script>
+</body>
+</html>
