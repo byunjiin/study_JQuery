@@ -32,9 +32,9 @@
                     $result
                         .find(".array .description")
                         .html(
-                            $.map(target,function(data){
-                                if(!name){
-                                    return data;
+                            $.map(target,function(data){ // 1번째 매개변수에 배열, 2번째 매개변수 함수
+                                if(!name){               // 입력된 배열의 모든 원소를 반복하며 입력된 함수를 모든 원소에
+                                    return data;         // 적용시킨 결과를 반환
                                 }else{
                                     return data[name];
                                 }
@@ -42,10 +42,11 @@
                         );
                 }
         }
-        //함수실행 : resultArray1
+
+        //함수실행 : resultArray1 차례로 배열을 순환하며 값을 얻음
         resultArray([1,2,3,4,5]);
-        //함수실행 : resultArray2
-        resultArray([{value:1},{value:1}],"value");
+        //함수실행 : resultArray2 객체형식으로 키값을 넣어 활용
+        //resultArray([{value:1},{value:2}],"value");
 
         //결과이상
     </script>

@@ -40,11 +40,11 @@
                     if(target.length != 0){
                         $result
                             .find(".html .description")
-                            .empty()
+                            .empty() //공백
                             .text(
                                 $(".result_html")
-                                    .append($(target).clone()) //clone?
-                                    .html()
+                                    .append($(target).clone()) //clone :복사
+                                    .html() //태그안의 요소들을 다 가져오기
                             );
                         
                     }

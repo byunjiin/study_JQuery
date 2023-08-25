@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Selectors</title>
+    <script src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <div style="margin:10px">
+        <a href="#">A태그</a>
+        <p class="first tag">P태그</p>
+        <a href="#">A태그</a>
+        <p><a href="#">P태그, A태그</a></p>
+        <p class="tag"><a href="#">P태그, A태그</a></p>
+        <span>SPAN태그</span>
+        <a href="#">A태그</a>
+        <p id="last">P태그, id = "last"</p>
+    </div>
+    <script>
+        function resultSelector(selector){
+            selector.css({outline:"3px solid red"});
+        }
+
+        //출력
+        // 1.전체 셀렉터
+        // resultSelector($("*"));
+
+        // 2.태그 셀렉터
+        // resultSelector($("p"));
+
+        // 3.아이디 셀렉터
+        // resultSelector($("#last")); //id니깐 #을 같이 적어줘야함
+
+        // 4.클래스 셀렉터
+        // resultSelector($(".tag")); //class니깐 .을 같이 적어줘야함
+
+        // 5.그룹 셀렉터 : 한개 이상의 셀렉터를 한번에 정의가능
+        // resultSelector($(".first,#last"));
+
+        // 6.자손 셀렉터 : 처음 셀렉터(Root)를 기준으로 아래 단계 모든 태그를 검색
+        resultSelector($("div a")); //문서에서 div 이하 단계 모든 a태그 찾기
+
+        // 7.자식 셀렉터 : 처음 셀렉터(Root)를 기준으로 한 단계 아래의 모든 태그를 검색
+        // resultSelector($("div > a")); //문서에서 div 바로 한 단계 아래에서 a태그 찾기
+
+        // 8.다음 셀렉터 (다음형제콤비네이터) : 같은 레벨에 해당하는 다음 한개의 태그를 탐색 (.next()와 유사)
+        // resultSelector($(".first + a")); //first값을 가진 클래스와 같은 레벨이며 바로 다음 순서인 a태그를 찾아표시
+
+        // 9.다음 형제 셀렉터 (인접형제콤비네이터) : 같은 레벨에 해당하는 다음 모든 태그를 탐색 (.nextAll()와 유사)
+        // resultSelector($(".first ~ a")); //first값을 가진 클래스와 같은 레벨이며 다음 순서인 모든 a태그를 찾아표시
+
+    </script>
+</body>
+</html>
