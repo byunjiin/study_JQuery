@@ -38,10 +38,68 @@
         }
 
         //출력
-        // 1.전체 셀렉터
-        // resultSelector($("*"));
+        // 1~5
+        // 1.nth-child()
+        // resultSelector($("div:nth-child(1)"));
         
+        // 2.first-child
+        // resultSelector($("div:first-child"));
 
+        // 3.nth-last-child()                              //X
+        // resultSelector($("div:nth-last-child(1)"));
+        
+        // 4.last-child                                   //X
+        // resultSelector($("div:last-child"));
+
+        // 5.only-child                                   //X
+        // resultSelector($("div:only-child"));
+        
+        // 6~11 문서트리의 부분적 접근
+        // 6.nth-type()                                   //X
+        // resultSelector($("div:nth-type(1)"));
+        
+        // 7.first-of-type()
+        // resultSelector($("div:first-of-type"));
+        
+        // 8.nth-last-of-type()
+        // resultSelector($("div:nth-last-of-type(1)"));
+        
+        // 9.last-of-type()                          
+        // resultSelector($("div:last-of-type"));
+        
+        // 10.only-of-type()                             //X
+        // resultSelector($("div:only-of-type"));
+        
+        // 11.empty
+        // resultSelector($("div:empty"));
+        
+        // The negative pseudo class
+        // 12.not()
+        // resultSelector($("div:not(input)"));
+        
+        // The UI element states pseudo classes           //X
+        // 13.enabled
+        // resultSelector($("div:enabled"));
+        
+        // 14.disabled                                   //X
+        // resultSelector($("div:disabled"));
+        
+        // 15.checked                                     //X
+        // resultSelector($("div:checked"));
+        // if($("option:checked")){
+        //     resultSelector($("select"));
+        // }
+        
+        // Dynamic pseudo class                            //X
+        // 16.fous
+        // $("div*").click(function() {
+        //     resultSelector($("div:fous()"));
+        // });
+        
+        // The target pseudo class                         //X
+        // 17.target
+        // location.href = $('#click').attr('href');
+        // resultSelector($("div:target"));
     </script>
 </body>
 </html>
